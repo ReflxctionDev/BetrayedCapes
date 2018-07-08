@@ -10,5 +10,5 @@ That's pretty much it, you will not need to do those steps again, however the mo
 
 ## Commands:
 * /ic toggle - Toggles the mod
-* /ic key - Sets the API key
+* /ic key <key> - Sets the API key
 * /ic cache - Caches the impurity members
