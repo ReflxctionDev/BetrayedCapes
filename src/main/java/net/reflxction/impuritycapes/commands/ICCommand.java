@@ -49,7 +49,7 @@ public class ICCommand implements ICommand {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "/impuritycapes <toggle>";
+        return "/impuritycapes <toggle / key / cache>";
     }
 
     @Override
