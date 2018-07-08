@@ -39,7 +39,7 @@ class CapeDownloader {
     private BufferedImage getCapeImage() {
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new URL("https://i.imgur.com/Vh1uLrX.png"));
+            image = ImageIO.read(new URL("https://raw.githubusercontent.com/ReflxctionDev/ImpurityCapes/master/cape.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,7 +60,7 @@ class CapeDownloader {
      *
      * @return The cape texture cache
      */
-    public ResourceLocation getCapeTexture() {
+    ResourceLocation getCapeTexture() {
         return capeTexture;
     }
 
