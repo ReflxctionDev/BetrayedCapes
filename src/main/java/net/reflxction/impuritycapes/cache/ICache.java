@@ -23,7 +23,6 @@ import java.util.UUID;
  */
 public interface ICache {
 
-
     /**
      * Set the current cached data singleton
      */

@@ -42,7 +42,7 @@ public class CacheImpl implements ICache {
 
             HypixelAPI api = new HypixelAPI(ImpurityCapes.getKey());
 
-            String impurityID = api.getGuildID("Scindra");
+            String impurityID = api.getGuildID(UUID.fromString("0a7fc7f5-5c4e-48b5-adec-75fb081a7e6d"));
 
             Guild impurity = api.getGuild(impurityID);
 

@@ -41,22 +41,25 @@ public class EntityJoinWorldListener {
 
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
-        if (ImpurityCapes.isEnabled()) {
-            if (mc.thePlayer.getGameProfile().getId().equals(event.entity.getUniqueID())) {
-                renderCape();
-            }
-            if (event.entity instanceof EntityPlayer) {
-                if (manager.isCreated()) {
-                    try {
-                        final EntityPlayerMP playerMP = ((EntityPlayerMP) event.entity);
+        try {
+            if (ImpurityCapes.isEnabled()) {
+                if (mc.thePlayer.getGameProfile().getId().equals(event.entity.getUniqueID())) {
+                    renderCape();
+                }
+                if (event.entity instanceof EntityPlayer) {
+                    if (manager.isCreated()) {
+                        try {
+                            final EntityPlayerMP playerMP = ((EntityPlayerMP) event.entity);
 
-                        if (ImpurityCapes.getCache().contains(playerMP.getUniqueID())) {
-                            renderCape();
+                            if (ImpurityCapes.getCache().contains(playerMP.getUniqueID())) {
+                                renderCape();
+                            }
+                        } catch (Exception ignored) {
                         }
-                    } catch (Exception ignored) {
                     }
                 }
             }
+        } catch (Exception ignored) {
         }
     }
 

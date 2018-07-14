@@ -22,3 +22,10 @@ eclipse
 run
 *.txt
 *.bat
+Hyperium
+Forge
+gradle/
+gradlew
+s
+src/api/
+src/test/
