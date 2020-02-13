@@ -13,29 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.commands;
+package io.github.reflxction.betrayedcapes.commands;
 
+import io.github.reflxction.betrayedcapes.BetrayedCapes;
+import io.github.reflxction.betrayedcapes.cache.ICache;
+import io.github.reflxction.betrayedcapes.events.EventFactory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
-import net.reflxction.impuritycapes.ImpurityCapes;
-import net.reflxction.impuritycapes.cache.CacheImpl;
-import net.reflxction.impuritycapes.cache.CacheManager;
-import net.reflxction.impuritycapes.cache.ICache;
-import net.reflxction.impuritycapes.events.EventFactory;
-import net.reflxction.impuritycapes.utils.ChatColor;
-import net.reflxction.impuritycapes.utils.ConfigManager;
-import net.reflxction.impuritycapes.utils.Reference;
+import io.github.reflxction.betrayedcapes.cache.CacheImpl;
+import io.github.reflxction.betrayedcapes.cache.CacheManager;
+import io.github.reflxction.betrayedcapes.utils.ChatColor;
+import io.github.reflxction.betrayedcapes.utils.ConfigManager;
+import io.github.reflxction.betrayedcapes.utils.Reference;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Class which handles command input for "/ic" and "/impuritycapes"
+ * Class which handles command input for "/bc" and "/betrayedcapes"
  */
-public class ICCommand implements ICommand {
+public class BCCommand implements ICommand {
 
     private ConfigManager config = new ConfigManager();
 
@@ -44,19 +46,17 @@ public class ICCommand implements ICommand {
 
     @Override
     public String getCommandName() {
-        return "impuritycapes";
+        return "betrayedcapes";
     }
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "/impuritycapes <toggle / key / cache>";
+        return "/betrayedcapes <toggle / key / cache>";
     }
 
     @Override
     public List<String> getCommandAliases() {
-        List<String> aliases = new ArrayList<>();
-        aliases.add("ic");
-        return aliases;
+        return Collections.singletonList("bc");
     }
 
     @Override
@@ -68,19 +68,17 @@ public class ICCommand implements ICommand {
             case 1:
                 switch (args[0]) {
                     case "toggle":
-                        config.setEnabled(!ImpurityCapes.isEnabled());
+                        config.setEnabled(!BetrayedCapes.isEnabled());
                         break;
                     case "cache":
-                        ImpurityCapes.setCache(cache.createCache());
+                        BetrayedCapes.setCache(cache.createCache());
                         cacheManager.saveCacheToConfig();
                         break;
                 }
                 break;
             case 2:
-                switch (args[0]) {
-                    case "key":
-                        EventFactory.onKeySet(args[1]);
-                        break;
+                if (args[0].equalsIgnoreCase("key")) {
+                    EventFactory.onKeySet(args[1]);
                 }
                 break;
         }
@@ -93,10 +91,7 @@ public class ICCommand implements ICommand {
 
     @Override
     public List<String> addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) {
-        List<String> tabs = new ArrayList<>();
-        tabs.add("impuritycapes");
-        tabs.add("ic");
-        return tabs;
+        return new ArrayList<>(Arrays.asList("cache", "key", "toggle"));
     }
 
     @Override
@@ -114,7 +109,7 @@ public class ICCommand implements ICommand {
      *
      * @param message Message to send
      */
-    private void sendMessage(String message) {
+    private static void sendMessage(String message) {
         if (Minecraft.getMinecraft().thePlayer != null) { // For safety :>
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(Reference.PREFIX + ChatColor.format(message)));
         }

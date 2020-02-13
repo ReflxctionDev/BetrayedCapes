@@ -1,4 +1,4 @@
-package net.reflxction.impuritycapes.utils;
+package io.github.reflxction.betrayedcapes.utils;
 
 /**
  * All supported color values for chat.

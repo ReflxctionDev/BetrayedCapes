@@ -13,22 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.cache;
+package io.github.reflxction.betrayedcapes.cache;
 
+import io.github.reflxction.betrayedcapes.BetrayedCapes;
 import me.kbrewster.hypixelapi.HypixelAPI;
 import me.kbrewster.hypixelapi.guild.Guild;
 import me.kbrewster.hypixelapi.guild.Member;
 import me.kbrewster.mojangapi.MojangAPI;
-import net.reflxction.impuritycapes.ImpurityCapes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * Implementation of {@link net.reflxction.impuritycapes.cache.ICache}
+ * Implementation of {@link ICache}
  */
 public class CacheImpl implements ICache {
+
+    private static final String GUILD_ID = "5b5dd7340cf2a7d9577a3dba";
 
     private List<UUID> playersCache = new ArrayList<>();
 
@@ -40,13 +42,11 @@ public class CacheImpl implements ICache {
         try {
             playersCache.clear(); // For safety to avoid memory leaks
 
-            HypixelAPI api = new HypixelAPI(ImpurityCapes.getKey());
+            HypixelAPI api = new HypixelAPI(BetrayedCapes.getKey());
 
-            String impurityID = api.getGuildID(UUID.fromString("0a7fc7f5-5c4e-48b5-adec-75fb081a7e6d"));
+            Guild betrayed = api.getGuild(GUILD_ID);
 
-            Guild impurity = api.getGuild(impurityID);
-
-            for (Member m : impurity.getMembers()) {
+            for (Member m : betrayed.getMembers()) {
                 playersCache.add(UUID.fromString(MojangAPI.addDashes(m.getUuid())));
             }
         } catch (Throwable e) {

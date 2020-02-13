@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.cache;
+package io.github.reflxction.betrayedcapes.cache;
 
-import net.reflxction.impuritycapes.ImpurityCapes;
+import io.github.reflxction.betrayedcapes.BetrayedCapes;
 
 import java.util.UUID;
 
@@ -27,19 +27,19 @@ public class CacheManager {
     private ICache cache = new CacheImpl();
 
     public void saveCacheToConfig() {
-        ImpurityCapes.setCache(cache.createCache());
+        BetrayedCapes.setCache(cache.createCache());
         StringBuilder uuids = new StringBuilder();
-        for (UUID uuid : ImpurityCapes.getCache()) {
+        for (UUID uuid : BetrayedCapes.getCache()) {
             uuids.append(" ").append(uuid);
         }
-        ImpurityCapes.getConfig().get("Cache", "Cache", "").set(uuids.toString().trim());
-        ImpurityCapes.getConfig().get("Cache", "Done", false).set(true);
-        ImpurityCapes.getConfig().save();
+        BetrayedCapes.getConfig().get("Cache", "Cache", "").set(uuids.toString().trim());
+        BetrayedCapes.getConfig().get("Cache", "Done", false).set(true);
+        BetrayedCapes.getConfig().save();
         System.out.println(uuids);
     }
 
     public boolean isCreated() {
-        return ImpurityCapes.getConfig().get("Cache", "Done", false).getBoolean();
+        return BetrayedCapes.getConfig().get("Cache", "Done", false).getBoolean();
     }
 
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.cape;
+package io.github.reflxction.betrayedcapes.cape;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -39,7 +39,7 @@ class CapeDownloader {
     private BufferedImage getCapeImage() {
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new URL("https://raw.githubusercontent.com/ReflxctionDev/ImpurityCapes/master/cape.png"));
+            image = ImageIO.read(new URL("https://raw.githubusercontent.com/ReflxctionDev/BetrayedCapes/master/cape.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ class CapeDownloader {
      * @return ResourceLocation of the cape texture from a buffered image
      */
     private ResourceLocation capeTexture() {
-        return Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation("impuritycape", new DynamicTexture(getCapeImage()));
+        return Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation("betrayedcape", new DynamicTexture(getCapeImage()));
     }
 
     /**

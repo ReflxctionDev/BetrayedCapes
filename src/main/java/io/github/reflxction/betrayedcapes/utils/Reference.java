@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.utils;
+package io.github.reflxction.betrayedcapes.utils;
 
 /**
  * Class which contains mod information.
@@ -21,10 +21,10 @@ package net.reflxction.impuritycapes.utils;
 public class Reference {
 
     // Mod ID (for Forge initialization)
-    public static final String MOD_ID = "impuritycapes";
+    public static final String MOD_ID = "betrayedcapes";
 
     // Mod name
-    public static final String NAME = "Impurity Capes";
+    public static final String NAME = "Betrayed Capes";
 
     // Mod version
     public static final String VERSION = "1.0";
@@ -33,11 +33,11 @@ public class Reference {
     public static final String ACCEPTED_VERSIONS = "[1.8.9]";
 
     // Mod prefix (for sending messages)
-    public static final String PREFIX = ChatColor.format("&2[&aImpurity Capes&2] ");
+    public static final String PREFIX = ChatColor.format("&2[&aBetrayed Capes&2] ");
 
     // Client proxy manager
-    public static final String CLIENT_PROXY = "net.reflxction.impuritycapes.proxy.ClientProxy";
+    public static final String CLIENT_PROXY = "ClientProxy";
 
     // Server proxy manager
-    public static final String SERVER_PROXY = "net.reflxction.impuritycapes.proxy.ServerProxy";
+    public static final String SERVER_PROXY = "ServerProxy";
 }

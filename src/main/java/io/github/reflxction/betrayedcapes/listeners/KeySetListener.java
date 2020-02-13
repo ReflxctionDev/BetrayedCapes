@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.listeners;
+package io.github.reflxction.betrayedcapes.listeners;
 
+import io.github.reflxction.betrayedcapes.events.KeySetEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.reflxction.impuritycapes.events.KeySetEvent;
-import net.reflxction.impuritycapes.utils.ChatColor;
-import net.reflxction.impuritycapes.utils.ConfigManager;
-import net.reflxction.impuritycapes.utils.Reference;
+import io.github.reflxction.betrayedcapes.utils.ChatColor;
+import io.github.reflxction.betrayedcapes.utils.ConfigManager;
+import io.github.reflxction.betrayedcapes.utils.Reference;
 
 /**
- * Listener for {@link net.reflxction.impuritycapes.events.KeySetEvent}
+ * Listener for {@link KeySetEvent}
  */
 public class KeySetListener {
 

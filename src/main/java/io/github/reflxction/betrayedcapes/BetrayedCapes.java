@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes;
+package io.github.reflxction.betrayedcapes;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -23,17 +23,17 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.reflxction.impuritycapes.cache.CacheImpl;
-import net.reflxction.impuritycapes.cache.ICache;
-import net.reflxction.impuritycapes.proxy.IProxy;
-import net.reflxction.impuritycapes.utils.Reference;
+import io.github.reflxction.betrayedcapes.cache.CacheImpl;
+import io.github.reflxction.betrayedcapes.cache.ICache;
+import io.github.reflxction.betrayedcapes.proxy.IProxy;
+import io.github.reflxction.betrayedcapes.utils.Reference;
 
 import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * ImpurityCapes: A mod which gives special capes to Impurity members.
+ * BetrayedCapes: A mod which gives special capes to Betrayed members.
  */
 @Mod(
         modid = Reference.MOD_ID,
@@ -41,7 +41,7 @@ import java.util.UUID;
         version = Reference.VERSION,
         acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS
 )
-public class ImpurityCapes {
+public class BetrayedCapes {
 
     // Config for saving data
     private static Configuration config;
@@ -61,7 +61,7 @@ public class ImpurityCapes {
      * Initialize variables here
      */
     static {
-        config = new Configuration(new File("config/impurity-capes.cfg"));
+        config = new Configuration(new File("config/betrayed-capes.cfg"));
         enabled = config.get("Enabled", "Enabled", true).getBoolean();
         key = config.get("Key", "Key", "").getString();
         cache = c.createCache();
@@ -118,7 +118,7 @@ public class ImpurityCapes {
      * @param enabled Boolean to set
      */
     public static void setEnabled(boolean enabled) {
-        ImpurityCapes.enabled = enabled;
+        BetrayedCapes.enabled = enabled;
     }
 
     /**
@@ -127,7 +127,7 @@ public class ImpurityCapes {
      * @param key Key to set
      */
     public static void setKey(String key) {
-        ImpurityCapes.key = key;
+        BetrayedCapes.key = key;
     }
 
     /**
@@ -163,6 +163,6 @@ public class ImpurityCapes {
      * @param cache Cache to set
      */
     public static void setCache(List<UUID> cache) {
-        ImpurityCapes.cache = cache;
+        BetrayedCapes.cache = cache;
     }
 }

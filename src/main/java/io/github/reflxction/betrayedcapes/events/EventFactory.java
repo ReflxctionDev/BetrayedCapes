@@ -13,24 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.events;
+package io.github.reflxction.betrayedcapes.events;
 
-import net.minecraftforge.fml.common.eventhandler.Cancelable;
-import net.minecraftforge.fml.common.eventhandler.Event;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
- * Event fired when the API key is set, handy to listen to it when it is fired
+ * Class which handles event posting
  */
-@Cancelable
-public class KeySetEvent extends Event {
+public class EventFactory {
 
-    private String key;
-
-    KeySetEvent(String key) {
-        this.key = key;
-    }
-
-    public String getKey() {
-        return key;
+    /**
+     * Fired when the API key has been set
+     *
+     * @param key the API key
+     */
+    public static void onKeySet(String key) {
+        KeySetEvent event = new KeySetEvent(key);
+        MinecraftForge.EVENT_BUS.post(event);
     }
 }

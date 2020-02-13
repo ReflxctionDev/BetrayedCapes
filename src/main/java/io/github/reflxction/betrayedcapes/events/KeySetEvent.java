@@ -13,19 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.cache;
+package io.github.reflxction.betrayedcapes.events;
 
-import java.util.List;
-import java.util.UUID;
+import net.minecraftforge.fml.common.eventhandler.Cancelable;
+import net.minecraftforge.fml.common.eventhandler.Event;
 
 /**
- * Interface which passes player caches between classes
+ * Event fired when the API key is set, handy to listen to it when it is fired
  */
-public interface ICache {
+@Cancelable
+public class KeySetEvent extends Event {
 
-    /**
-     * Set the current cached data singleton
-     */
-    List<UUID> createCache();
+    private String key;
 
+    KeySetEvent(String key) {
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
 }

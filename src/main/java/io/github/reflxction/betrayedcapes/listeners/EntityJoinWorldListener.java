@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.listeners;
+package io.github.reflxction.betrayedcapes.listeners;
 
+import io.github.reflxction.betrayedcapes.BetrayedCapes;
+import io.github.reflxction.betrayedcapes.cape.CapeLayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,9 +24,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.EnumPlayerModelParts;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.reflxction.impuritycapes.ImpurityCapes;
-import net.reflxction.impuritycapes.cache.CacheManager;
-import net.reflxction.impuritycapes.cape.CapeLayer;
+import io.github.reflxction.betrayedcapes.cache.CacheManager;
 
 /**
  * Class which handles cape rendering
@@ -42,7 +42,7 @@ public class EntityJoinWorldListener {
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
         try {
-            if (ImpurityCapes.isEnabled()) {
+            if (BetrayedCapes.isEnabled()) {
                 if (mc.thePlayer.getGameProfile().getId().equals(event.entity.getUniqueID())) {
                     renderCape();
                 }
@@ -51,7 +51,7 @@ public class EntityJoinWorldListener {
                         try {
                             final EntityPlayerMP playerMP = ((EntityPlayerMP) event.entity);
 
-                            if (ImpurityCapes.getCache().contains(playerMP.getUniqueID())) {
+                            if (BetrayedCapes.getCache().contains(playerMP.getUniqueID())) {
                                 renderCape();
                             }
                         } catch (Exception ignored) {

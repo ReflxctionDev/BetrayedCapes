@@ -1,11 +1,11 @@
 [
 {
-  "modid": "impuritycapes",
-  "name": "Impurity Capes",
-  "description": "A mod which gives special capes to Impurity members.Type /ic for a list of commands.",
+  "modid": "betrayedcapes",
+  "name": "Betrayed Capes",
+  "description": "A mod which gives special capes to Betrayed members.Type /bc for a list of commands.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://github.com/ReflxctionDev/ImpurityCapes",
+  "url": "https://github.com/ReflxctionDev/BetrayedCapes",
   "updateUrl": "",
   "authorList": ["Reflxction"],
   "credits": "Reflxction",

@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.cape;
+package io.github.reflxction.betrayedcapes.cape;
 
+import io.github.reflxction.betrayedcapes.BetrayedCapes;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -23,7 +24,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EnumPlayerModelParts;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import net.reflxction.impuritycapes.ImpurityCapes;
 
 /**
  * The cape layer which handles cape rendering
@@ -48,7 +48,7 @@ public class CapeLayer implements LayerRenderer {
     @Override
     public void doRenderLayer(EntityLivingBase entity, float p_177141_2_, float p_177141_3_, float partialTicks, float p_177141_5_, float p_177141_6_, float p_177141_7_, float scale) {
         AbstractClientPlayer player = ((AbstractClientPlayer) entity);
-        ResourceLocation rl = ImpurityCapes.getCache().contains(player.getUniqueID()) ? downloader.getCapeTexture() : null;
+        ResourceLocation rl = BetrayedCapes.getCache().contains(player.getUniqueID()) ? downloader.getCapeTexture() : null;
         if (player.hasSkin() && !player.isInvisible() && player.isWearing(EnumPlayerModelParts.CAPE)) {
             float f9 = 0.14F;
             float f10 = 0.0F;

@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.proxy;
+package io.github.reflxction.betrayedcapes.proxy;
 
+import io.github.reflxction.betrayedcapes.commands.BCCommand;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.reflxction.impuritycapes.commands.ICCommand;
 
 /**
  * Server proxy handler
@@ -32,7 +32,7 @@ public class ServerProxy implements IProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        ClientCommandHandler.instance.registerCommand(new ICCommand());
+        ClientCommandHandler.instance.registerCommand(new BCCommand());
     }
 
     @Override
@@ -45,6 +45,6 @@ public class ServerProxy implements IProxy {
 
     @Override
     public void serverStarting(FMLServerStartingEvent event) {
-        event.registerServerCommand(new ICCommand());
+        event.registerServerCommand(new BCCommand());
     }
 }

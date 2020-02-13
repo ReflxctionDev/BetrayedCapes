@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.utils;
+package io.github.reflxction.betrayedcapes.utils;
 
-import net.reflxction.impuritycapes.ImpurityCapes;
+import io.github.reflxction.betrayedcapes.BetrayedCapes;
 
 public class ConfigManager {
 
@@ -25,9 +25,9 @@ public class ConfigManager {
      * @param b Flag if it should be enabled or not
      */
     public void setEnabled(boolean b) {
-        ImpurityCapes.setEnabled(b);
-        ImpurityCapes.getConfig().get("Enabled", "Enabled", true).set(b);
-        ImpurityCapes.getConfig().save();
+        BetrayedCapes.setEnabled(b);
+        BetrayedCapes.getConfig().get("Enabled", "Enabled", true).set(b);
+        BetrayedCapes.getConfig().save();
     }
 
     /**
@@ -36,9 +36,9 @@ public class ConfigManager {
      * @param key Key to set
      */
     public void setKey(String key) {
-        ImpurityCapes.setKey(key);
-        ImpurityCapes.getConfig().get("Key", "Key", "").set(key);
-        ImpurityCapes.getConfig().save();
+        BetrayedCapes.setKey(key);
+        BetrayedCapes.getConfig().get("Key", "Key", "").set(key);
+        BetrayedCapes.getConfig().save();
     }
 
 }

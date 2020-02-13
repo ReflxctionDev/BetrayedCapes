@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.proxy;
+package io.github.reflxction.betrayedcapes.proxy;
 
+import io.github.reflxction.betrayedcapes.commands.BCCommand;
+import io.github.reflxction.betrayedcapes.listeners.EntityJoinWorldListener;
+import io.github.reflxction.betrayedcapes.listeners.KeySetListener;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.*;
-import net.reflxction.impuritycapes.commands.ICCommand;
-import net.reflxction.impuritycapes.listeners.EntityJoinWorldListener;
-import net.reflxction.impuritycapes.listeners.KeySetListener;
 
 /**
  * Client proxy handler
@@ -38,7 +38,7 @@ public class ClientProxy implements IProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         System.out.println("preInit()");
-        ClientCommandHandler.instance.registerCommand(new ICCommand());
+        ClientCommandHandler.instance.registerCommand(new BCCommand());
     }
 
     /**
@@ -71,7 +71,7 @@ public class ClientProxy implements IProxy {
      */
     @Override
     public void serverStarting(FMLServerStartingEvent event) {
-        event.registerServerCommand(new ICCommand());
+        event.registerServerCommand(new BCCommand());
         System.out.println("serverStarted()");
     }
 

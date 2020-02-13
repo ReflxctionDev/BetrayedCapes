@@ -13,22 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.reflxction.impuritycapes.events;
+package io.github.reflxction.betrayedcapes.cache;
 
-import net.minecraftforge.common.MinecraftForge;
+import java.util.List;
+import java.util.UUID;
 
 /**
- * Class which handles event posting
+ * Interface which passes player caches between classes
  */
-public class EventFactory {
+public interface ICache {
 
     /**
-     * Fired when the API key has been set
-     *
-     * @param key the API key
+     * Set the current cached data singleton
      */
-    public static void onKeySet(String key) {
-        KeySetEvent event = new KeySetEvent(key);
-        MinecraftForge.EVENT_BUS.post(event);
-    }
+    List<UUID> createCache();
+
 }
